@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	<title>COOL GROCERIES</title>
+	<h1 style="color:#abb;">COOL GROCERIES</h1>
+</head>
+<body>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client'); tabColour(0);">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products'); tabColour(1);">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart'); tabColour(2);">Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+	<h3>Customer information</h3>
+	Please specify your diet:<br>
+	
+	<input type="checkbox" id="filter1" name="filter1" value="Vegetarian">
+	<label for="filter1">Vegetarian</label><br>
+	<input type="checkbox" id="filter2" name="filter2" value="Gluten-free">
+  	<label for="filter2">Gluten-free</label><br>
+  	<input type="checkbox" id="filter3" name="filter3" value="Organic">
+  	<label for="filter3">Organic</label><br>
+	<button id="applyFilters" onclick="start()">Apply filters</button><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div id="Products" class="tabcontent">
+	<h3>Your personalized suggestions</h3>
+	<p>Our pre-selections based on your diet.</p>
+
+	<div id="div1"></div>
+	Category:
+	<select id="categorySelect" name="categorySelect" onchange="applyFilters()">
+	<option value="">(Please make a selection)</option>
+	<option value="all">All</option>
+	<option value="bakery">Bakery</option>
+	<option value="beverages">Beverages</option>
+	<option value="dairy">Dairy</option>
+	<option value="cooking">Cooking products</option>
+	<option value="fruits">Fruits</option>
+	<option value="meat">Meat</option>
+	<option value="vegetables">Vegetables</option>
+	<option value="soups">Soups</option>
+	</select><br><br>
+
+	Choose items to buy:<br>
+	<div id="displayProduct"></div>
+	<button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart
+	</button><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div id="Cart" class="tabcontent">
+	<h3>Shopping cart</h3>
+	<p>Here are the contents of your cart.</p>
+	<div id="displayCart"></div>
+	<button id="order" type="button" class="block" onclick="window.location.reload()">
+		Place order
+	</button><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #abb;
+  color: black;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
+  <p>Website designed by Hansel-Timon Ngien</p>
+</div>
+</body>
+</html>
